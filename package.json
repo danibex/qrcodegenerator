@@ -1,0 +1,48 @@
+{
+  "name": "qercodegenerator",
+  "version": "1.0.0",
+  "author": "Daniel I. M. Santana",
+  "description": "Aplicação para gerar QR codes utilizando Electron e Express.",
+  "license": "MIT",
+  "main": "./electron/main.js",
+  "scripts": {
+    "start-electron": "electron .",
+    "start-backend": "node ./backend/index.js",
+    "start": "concurrently \"npm run start-electron\" \"npm run start-backend\"",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14",
+    "qrcode": "^1.5.3"
+  },
+  "devDependencies": {
+    "electron": "^31.1.0",
+    "electron-builder": "^24.13.3",
+    "tailwindcss": "^3.4.4"
+  },
+  "build": {
+    "appId": "qrcode.generator",
+    "productName": "Gerador QRCode",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "extends": null
+  }
+}
