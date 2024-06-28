@@ -8,7 +8,7 @@ class Gerador {
 
   constructor(nome, email, senha, url,) {
     this.#email = email;
-    this.#senha = senha;
+    this.#senha = senha.replace(/\s/g, '');
     this.#url = url;
     this.#nome = nome;
   }
