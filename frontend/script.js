@@ -19,9 +19,10 @@ document.getElementById('formularioQR').addEventListener('submit', function(even
     .then(data => {
         console.log('Success:', data);
         // Adicione aqui o código para lidar com o sucesso da requisição
+        alert('QR Code gerado com sucesso! Verfique seu email.')
     })
     .finally(() => {
-        alert('QR Code gerado com sucesso! Verfique seu email.')
+        window.location.reload(true);
     })
     .catch((error) => {
         console.error('Error:', error);

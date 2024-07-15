@@ -9,7 +9,6 @@ app.use(cors());
 
 app.post('/gerar', async (req, res) => {
   const {nome, email, senha, url} = req.body
-
   let gerador = new Gerador(nome, email, senha, url)
   let resposta = await gerador.efetuarProcesso();
   res.send({resposta: resposta})
